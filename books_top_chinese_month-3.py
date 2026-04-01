@@ -35,7 +35,7 @@ def request_with_retry(session: requests.Session, url: str, retries=5, timeout=2
             time.sleep(sleep_s)
     raise last_exc
 
-ISBN_RE = re.compile(r"\b97[89]\d{10}\b")
+ISBN_RE = re.compile(r"\b\d{10,13}\b")
 
 def extract_isbn_from_product_html(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
@@ -115,14 +115,14 @@ def main():
         rows.append([title, isbn, url])
 
         # 節奏放慢一點更不容易被踢
-        time.sleep(random.uniform(320.2, 520.2))
+        time.sleep(random.uniform(100.2, 200.2))
 
-    with open("books_isbn.csv", "w", newline="", encoding="utf-8-sig") as f:
+    with open("books_isbn-2.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["書名", "ISBN", "URL"])
         w.writerows(rows)
 
-    print("完成：books_isbn-1.csv")
+    print("完成：books_isbn-2.csv")
 
 if __name__ == "__main__":
     main()

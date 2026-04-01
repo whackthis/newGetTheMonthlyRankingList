@@ -1,0 +1,89 @@
+<!-- 3月底的榜單，4/1開始撈取-->
+<!-- 做個網頁畫面的紀錄-->
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <script type="module" crossorigin src="/assets/polyfills-DguAJBEB.js"></script>
+
+    <script defer src="/cdn/vue.runtime.global.prod.js"></script>
+    <script defer src="/cdn/axios.min.js"></script>
+    <script defer src="/cdn/vue-router.global.prod.js"></script>
+    <script defer src="/cdn/vee-validate.min.js"></script>
+    <script defer src="/cdn/vue-demi.iife.min.js"></script>
+    <script defer src="/cdn/pinia.iife.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/notosanstc/v36/-nF7OG829Oofr2wohFbTp9iFOisNA_cTyNromxqQuEMQ2wHYwbnmy1R1jDujLebozBXCo2qYhRo.19.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>誠品線上 - 把生活變成喜歡的樣子</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <meta http-equiv="Content-Security-Policy" class="Content-Security-Policy" content="default-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com google-analytics.com google.com.tw google.com gstatic.com googleadservices.com googletagmanager.com *.google-analytics.com *.google.com.tw *.google.com *.googleadservices.com *.googletagmanager.com *.gstatic.com *.amazonaws.com *.clarity.ms *.criteo.com *.criteo.net *.facebook.com *.facebook.net *.googleapis.com *.oribi.io *.scupio.com *.taboola.com *.yimg.com analytics.google.com api.tigerfly.tw bat.bing.com cdn.linkedin.oribi.io google.com googleads.g.doubleclick.net iframe.ly stats.g.doubleclick.net *.pubu.tw; font-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com blob: data: fonts.googleapis.com fonts.gstatic.com; frame-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com blob: data: google-analytics.com google.com.tw google.com gstatic.com googleadservices.com googletagmanager.com *.google-analytics.com *.google.com.tw *.google.com *.googleadservices.com *.googletagmanager.com *.gstatic.com *.clarity.ms *.criteo.com *.criteo.net *.doubleclick.net *.facebook.com *.facebook.net *.spotify.com *.taboola.com *.youtube.com cdn.iframe.ly i.vimeocdn.com img.scupio.com fraud.tappaysdk.com js.tappaysdk.com player.vimeo.com spotify.com techatbot-eslite.tonii.cc youtube.com *.pubu.tw *.queue-it.net api2.queue-it.net queue-it.eslite.com *.datadoghq.com rum-http-intake.logs.datadoghq.com intake.profile.datadoghq.com rum.us5.datadoghq.com logs.us5.datadoghq.com rum-http-intake.logs.us5.datadoghq.com intake.profile.us5.datadoghq.com browser-intake-us5-datadoghq.com; img-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com blob: data: https://www.leico-shop.com.tw google-analytics.com google.com.tw google.com gstatic.com googleadservices.com googletagmanager.com *.google-analytics.com *.google.com.tw *.google.com *.googleadservices.com *.googletagmanager.com *.gstatic.com *.amazonaws.com *.bing.com *.clarity.ms *.criteo.com *.criteo.net *.doubleclick.net *.facebook.com *.facebook.net *.linkedin.com *.oribi.io *.placeholder.com *.yahoo.com files.eslitexpo.com img.scupio.com *.pubu.tw; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com blob: data: google-analytics.com google.com.tw google.com gstatic.com googleadservices.com googletagmanager.com *.google-analytics.com *.google.com.tw *.google.com *.googleadservices.com *.googletagmanager.com *.gstatic.com *.amazonaws.com *.bing.com *.clarity.ms *.criteo.com *.criteo.net *.doubleclick.net *.facebook.com *.facebook.net *.google.com *.googleapis.com *.licdn.com *.linkedin.com *.oribi.io *.scupio.com *.taboola.com *.yahoo.com *.yimg.com analytics.google.com api.tigerfly.tw cdn.iframe.ly cdn.linkedin.oribi.io cdn.taboola.com cdnjs.cloudflare.com dynamic.criteo.com googleads.g.doubleclick.net img.scupio.com fraud.tappaysdk.com js.tappaysdk.com s8.addthis.com stackpath.bootstrapcdn.com static.doubleclick.net *.pubu.tw cdn-global.configcat.com *.queue-it.net api2.queue-it.net queue-it.eslite.com cloudflareinsights.com static.cloudflareinsights.com *.datadoghq.com rum-http-intake.logs.datadoghq.com intake.profile.datadoghq.com rum.us5.datadoghq.com logs.us5.datadoghq.com rum-http-intake.logs.us5.datadoghq.com intake.profile.us5.datadoghq.com browser-intake-us5-datadoghq.com; connect-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com google-analytics.com google.com.tw google.com gstatic.com googleadservices.com googletagmanager.com *.google-analytics.com *.google.com.tw *.google.com *.googleadservices.com *.googletagmanager.com *.gstatic.com *.amazonaws.com *.bing.com *.clarity.ms *.criteo.com *.criteo.net *.doubleclick.net *.facebook.com *.facebook.net *.google.com *.googleapis.com *.licdn.com *.linkedin.com *.oribi.io *.scupio.com *.taboola.com *.yahoo.com *.yimg.com analytics.google.com api.tigerfly.tw cdn.iframe.ly cdn.linkedin.oribi.io cdn.taboola.com cdnjs.cloudflare.com dynamic.criteo.com googleads.g.doubleclick.net img.scupio.com fraud.tappaysdk.com js.tappaysdk.com s8.addthis.com stackpath.bootstrapcdn.com static.doubleclick.net *.pubu.tw cdn-global.configcat.com *.queue-it.net api2.queue-it.net queue-it.eslite.com cloudflareinsights.com static.cloudflareinsights.com *.datadoghq.com rum-http-intake.logs.datadoghq.com intake.profile.datadoghq.com rum.us5.datadoghq.com logs.us5.datadoghq.com rum-http-intake.logs.us5.datadoghq.com intake.profile.us5.datadoghq.com browser-intake-us5-datadoghq.com; style-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; *.eslite.com blob: data: google-analytics.com google.com.tw google.com gstatic.com googleadservices.com googletagmanager.com *.google-analytics.com *.google.com.tw *.google.com *.googleadservices.com *.googletagmanager.com *.gstatic.com *.amazonaws.com cdnjs.cloudflare.com fonts.googleapis.com stackpath.bootstrapcdn.com *.pubu.tw">
+    <link rel="preconnect" href="https://inception.eslite.com" crossorigin="anonymous">
+    <link rel="dns-prefetch" href="https://inception.eslite.com">
+    <link rel="preconnect" href="https://athena.eslite.com" crossorigin="anonymous">
+    <link rel="dns-prefetch" href="https://athena.eslite.com">
+    <link rel="preconnect" href="https://holmes.eslite.com" crossorigin="anonymous">
+    <link rel="dns-prefetch" href="https://holmes.eslite.com">
+    <link rel="preconnect" href="https://s.eslite.com">
+    <link rel="dns-prefetch" href="https://s.eslite.com">
+    <link rel="preconnect" href="https://static.eslite.com">
+    <link rel="dns-prefetch" href="https://static.eslite.com">
+    <link rel="preconnect" href="https://s2.eslite.com/">
+    <link rel="dns-prefetch" href="https://s2.eslite.com/">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es2016,es2017,es2018,es2019,es2021,globalThis&amp;flags=gated" as="script" crossorigin="">
+    <link rel="icon" type="image/png" href="/logo-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/logo-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/logo-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="mask-icon" href="/favicon.png" color="#darkhex">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script id="queue-it-core" src="https://static.queue-it.net/script/queueclient.min.js" defer></script>
+    <script defer data-queueit-c="eslite" data-queueit-spa="true" data-queueit-intercept-domain="eslite.com" src="https://static.queue-it.net/script/queueconfigloader.min.js"></script>
+    <script id="tappay-script" src="/tappaysdk-v5.24.0.js"></script>
+    <script>(function(){if(location.host==="eslite.com")window.location="https://www.eslite.com";})()</script>
+    <script id="first-in-page-script">window.firstInPage = true;</script>
+    <script id="in-app-sw-disabled">(function(){if(navigator.userAgent.indexOf('member_tw') > -1){ console.log('🚫 inApp detected, SW disabled'); if('serviceWorker' in navigator){ navigator.serviceWorker.getRegistrations?.().then?.(r=>r.forEach(x=>x.unregister())); navigator.serviceWorker.register=()=>Promise.reject('SW disabled'); } if('caches' in window)caches.keys?.().then?.(n=>n.forEach(x=>caches.delete(x)));}})();</script>
+    <script type="module" crossorigin src="/assets/index-C4nT-2-V.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-swiper-Ag6EBJ2R.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-dompurify-FVN2sLic.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-vue-dompurify-html-RIsDE5ZV.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-@datadog-DCFUqH7s.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-utils-Dx5ICJ7f.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-functional-5CjJnmCY.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-hookable-B40lktZ0.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-unhead-DJOoqfNr.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-@unhead-D4ygs3NQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-vue-gtag-PBRjisfi.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-@gtm-support-BRm-NpjS.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-dayjs-DxjYJODD.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-@vee-validate-CbHTWUjW.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-property-expr-DwgEMw67.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-tiny-case-Gl8mQWqo.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-toposort-oLZb3Qth.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-yup-DPdEaSIi.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-@floating-ui-CBl6P2tX.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-floating-vue-D6MHrEVK.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-vue-lazyload-BpMOYis7.js">
+    <link rel="stylesheet" crossorigin href="/assets/vendor-swiper-Cq_5vFNA.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-s6jvpJBQ.css">
+    <link rel="stylesheet" crossorigin href="/assets/tailwind-DdkVwTUW.css">
+    <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>
+    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+  <script id="vite-plugin-pwa:register-sw" src="/registerSW.js" defer></script></head>
+  <body>
+    <div id="app"></div>
+    <script type="module" id="eslite-third-party" src="/eslite_third_party_v5.min.js"></script>
+    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-BchUJBxg.js"></script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy-BguSk9pS.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"b4669efcb8114543adad1058d04f6c69","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

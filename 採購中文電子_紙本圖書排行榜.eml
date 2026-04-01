@@ -1,0 +1,252 @@
+Delivered-To: lbk850124@lib.nycu.edu.tw
+Received: by 2002:a05:6a10:7f06:b0:6ba:afd9:23d4 with SMTP id ao6csp27458pxc;
+        Tue, 3 Mar 2026 21:59:59 -0800 (PST)
+X-Received: by 2002:a17:90b:1d47:b0:34c:2db6:57a7 with SMTP id 98e67ed59e1d1-359a69c7673mr1026120a91.8.1772603999622;
+        Tue, 03 Mar 2026 21:59:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772603999; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QKHTxBaS3BUMtNU9rGLE3IV7aJjGTQX90FRiF4uGdy2jdEUGeg+pu2Ovs6+6eH8O3n
+         6aqvqjdVPibyiS5GvcOJAUJjkEq6fC/bfMlP6PveumcRDqpRQRBFtWuyTDP8IZAIPOpw
+         L/CG+ER0R9EmJXF7STHNfVVqewdEzWp4alYW9TB7aJUUOGKtysR+lcM1GK/GdqSXhMC7
+         Q5foMpMj3Ubg0nZp7CsjOE4/ilz6gGDH8/0EqFZJcLkjcE2kZIo7lUYsRiJueCg2mFfq
+         ohQQ0eP7h360tIG7l5r4Z36UlP3mtU58Ikemrs2tmDcRWpU/bTfWf8UuicReZXBW054g
+         R9CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=in-reply-to:cc:from:to:content-language:references:subject
+         :user-agent:mime-version:date:message-id:dkim-signature;
+        bh=6z/Mgw8QODPRsQyyZnTJtDgOHLeDSvU4BdUxQcqyJw8=;
+        fh=AEpn3i6Ut5cYSgTD4n25F0g7QSWN4npMYsw3YCT+kSI=;
+        b=Ofpile5wS+VYFSZxhRdgix0S+1VS5/de0uKOdjM2UGezcSCJNkSHsKr2V+x1Wx9xXl
+         Ai/Opq18wGaFsdy6p7cwRCDXKWq/hfNAiCFdy1pigWiJ9PyWay1QEadx9RWiPWnCjk48
+         ciWHVXJRxjW6G+iNKt0tk/I+67YnQ5jCnt14jlacsRcYJVfIOzuw0fpvB3VMv1DeWJ1N
+         5SzX9huVdpjqXqmFjMZwz5x5332AWX7sx6uQrZj+bHKIge3wcdJlUwJqmiGuGxQtJmQR
+         HaTqSulW3BKWHCkdgAIarZGm6ScOLvsxxp1av5vPV265yqQOaFkc9nAr7U8ka8mPT095
+         scmA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@lib.nycu.edu.tw header.s=google header.b=c1HKpG5k;
+       spf=pass (google.com: domain of jane@lib.nycu.edu.tw designates 209.85.220.41 as permitted sender) smtp.mailfrom=jane@lib.nycu.edu.tw;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lib.nycu.edu.tw;
+       dara=neutral header.i=@lib.nycu.edu.tw
+Return-Path: <jane@lib.nycu.edu.tw>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 98e67ed59e1d1-3593ddd03fcsor7104071a91.7.2026.03.03.21.59.59
+        for <lbk850124@lib.nycu.edu.tw>
+        (Google Transport Security);
+        Tue, 03 Mar 2026 21:59:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of jane@lib.nycu.edu.tw designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@lib.nycu.edu.tw header.s=google header.b=c1HKpG5k;
+       spf=pass (google.com: domain of jane@lib.nycu.edu.tw designates 209.85.220.41 as permitted sender) smtp.mailfrom=jane@lib.nycu.edu.tw;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lib.nycu.edu.tw;
+       dara=neutral header.i=@lib.nycu.edu.tw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lib.nycu.edu.tw; s=google; t=1772603999; x=1773208799; darn=lib.nycu.edu.tw;
+        h=in-reply-to:cc:from:to:content-language:references:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6z/Mgw8QODPRsQyyZnTJtDgOHLeDSvU4BdUxQcqyJw8=;
+        b=c1HKpG5kZT8u41iXZvmkaO7mNHS3mz907dIjSg7WpX1/Qb1MSazyRptevplEyJZTRJ
+         blyj8VvNziBvFpdCGQBmgx8wDalogDlIxZcZrY7yPWkhOTw2YjHCgDwmjbDeyer94Z2Z
+         t5yB3cM4qhgO2vYXICicfbDfUDixdC+zI7N4NM1PYvnOaMvVuySA/OfePESOtua46BdJ
+         JR4JPJfJ3HxfEsGIHETxwzAshqUjADNU8bmyPEwWlVZmRJnw7o65CmDx4FNfQMLu/MJj
+         bYvwLeuBt6OhCbUWtYBo9DcLJkcdV5LSUyw1E+5/ltqNkzT04ezdDcl8Yv59q2YesUfI
+         dD6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772603999; x=1773208799;
+        h=in-reply-to:cc:from:to:content-language:references:subject
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6z/Mgw8QODPRsQyyZnTJtDgOHLeDSvU4BdUxQcqyJw8=;
+        b=R5R4ihNjjzbetjqaE56lZkqHSThoHcXhaNW/mrRtZlzPkOHSlO5lovfVPsayxAZGOC
+         odqLxW4Ck3MqzLnm3jvID/XY2uEPbG/lPgwSt038tkikJwjjARiBhOxCaVbBJhKolc00
+         0sGdhqcK8nX0QzaE4uMDqdro/Z6gNAszR/Pn0R6X19Q5hoKU5/AO+0MvuujsMZznw4WN
+         HX7fbaYmZg/KEEdWot+5zjxOI4qzy5XfQzWnSQ0v7CiQV6pahqyFhXkw/4MUVGnhINqc
+         ezbJ8TDEZegfi0ckdrd6s+sUVS8qVfEdgbnztNcNMlvdMKmsMW9bUFtbxcPrsOY4U0Ah
+         GzPQ==
+X-Gm-Message-State: AOJu0Yw4GCEt/uUnrnpe9q9JFD3/XRgx8hmjDwfXIKGTR3sq43YZUzDl
+	e4kU0YIewuHnoXpv3CyFhuoZT22wDCTGYuEFhZ3c8cpx2rFqfCan2QbKQO/kc3bNXx1NyDCiY/B
+	0WuoxnXJZ9g==
+X-Gm-Gg: ATEYQzxutPiH+W0EdekXMk2+h+3J5xl7Vdp3KHKnwHa0i6sMW3DSyUzEFIco+IH/kBC
+	ySkUksDtEuAuS+z/mTkSI89gch9sP8RduouNcAWqNCm9d+d3Ia9eVXlsA6DHgdMyt5cj6lbTK+y
+	u3uaCHInsoVVW6OaXocstuiVqAK7vFvDiYTWb4bLqfD/99gBE2xahWGwUtCNYXy3V29zbSVf2jF
+	Yl4TYxC+ukmBAHucFQzjEfUNaaK+AxSedSXspZmV/D4Mai40X5gBghr4k9G0JJoQIAzDj9LFlFO
+	AKDUb9dqPNLYVxfbWQu3u88uGyyBHih2+ei4qfIt49Toyqcbk7H5aY5GrQjQ+80Rad5exEOAdKW
+	OT+I+rwLieOJ/GyD9HW24VXPMnu8bdOpPRAueIrAuqFVsN7ut4DnI1jTm8W9RvET65Scaq9fNvV
+	FDY5S8V2UabqOxEHYs2UvH9Oc3twhWadSP95Ve0Ws=
+X-Received: by 2002:a05:6a21:1fc7:b0:38e:87d7:e737 with SMTP id adf61e73a8af0-3982e19f341mr994059637.36.1772603998648;
+        Tue, 03 Mar 2026 21:59:58 -0800 (PST)
+Return-Path: <jane@lib.nycu.edu.tw>
+Received: from [120.126.33.6] ([120.126.33.6])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae492e6901sm90767445ad.65.2026.03.03.21.59.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Mar 2026 21:59:58 -0800 (PST)
+Content-Type: multipart/alternative;
+ boundary="------------0zgn7mfn5PQTlDWE7tOgwIqA"
+Message-ID: <17e42f4f-8a2f-424c-a32b-46bbd98d8b31@lib.nycu.edu.tw>
+Date: Wed, 4 Mar 2026 13:59:56 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?B?RndkOiDmjqHos7zkuK3mlofpm7vlrZAv57SZ5pys5ZyW5pu45o6S6KGM?=
+ =?UTF-8?B?5qac?=
+References: <CAJ-L9NOGNUQ+2HyfcSideNC5QYiJkeDRhnc40waKuvaX09L+Jg@mail.gmail.com>
+Content-Language: en-US
+To: =?UTF-8?B?57O757WxQ1/lionmn4/lh7E=?= <lbk850124@lib.nycu.edu.tw>
+From: Hsiu-Ai Chiang <jane@lib.nycu.edu.tw>
+Cc: =?UTF-8?B?57O757WxQy3lkLPmnbHpmb0=?= <cookwu@lib.nycu.edu.tw>
+In-Reply-To: <CAJ-L9NOGNUQ+2HyfcSideNC5QYiJkeDRhnc40waKuvaX09L+Jg@mail.gmail.com>
+X-Forwarded-Message-Id: <CAJ-L9NOGNUQ+2HyfcSideNC5QYiJkeDRhnc40waKuvaX09L+Jg@mail.gmail.com>
+
+This is a multi-part message in MIME format.
+--------------0zgn7mfn5PQTlDWE7tOgwIqA
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+柏凱好，
+
+工作來了麻煩您，開發撈每月誠品與博客來中文紙本圖書排行榜，並比對是否有館藏後提供採編組採購。可以請教東陽如何進行。
+
+有問題再提出。謝謝!
+
+秀愛20260304
+
+
+
+-------- 轉寄郵件 --------
+主旨: 	採購中文電子/紙本圖書排行榜
+日期: 	Wed, 4 Mar 2026 09:49:39 +0800
+從: 	谷佳臻 <char@lib.nycu.edu.tw>
+到: 	江秀愛組長 <jane@lib.nycu.edu.tw>, 陳怡鈞組長 
+<nycu0029@lib.nycu.edu.tw>
+副本: 	館長 <mjhwang@lib.nycu.edu.tw>
+
+
+
+秀愛組長 好：
+
+要煩請資訊組(柏凱)協助撈每月誠品與博客來中文紙本圖書排行榜，並比對是否有館藏後提供採編組採購(可使用GEMINI或任何AI工具協助)。
+
+
+怡鈞組長 好：
+
+請hyread廠商提供中文電子書每月前30名排行榜，並進行採購(額度約1-2萬台幣)，
+另資訊組提供前述排行榜的部分，如有電子書也請優先採購，無電子書的部分採購紙本。
+
+再麻煩兩位組長了，非常感謝！
+
+佳臻
+-- 
+谷佳臻 Charlotte Ku
+國立陽明交通大學圖書館 館長室 (交大校區)
+Chiao Tung Campus
+National Yang Ming Chiao Tung University Library
+Tel：+886-3-5712121#31780
+Fax：+886-3-5718925
+--------------0zgn7mfn5PQTlDWE7tOgwIqA
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p>柏凱好，</p>
+    <p>工作來了麻煩您，開發撈每月誠品與博客來中文紙本圖書排行榜，並比對是否有館藏後提供採編組採購。可以請教東陽如何進行。</p>
+    <p>有問題再提出。謝謝!</p>
+    <p>秀愛20260304</p>
+    <div class="moz-forward-container"><br>
+      <br>
+      -------- 轉寄郵件 --------
+      <table cellpadding="0" cellspacing="0" border="0"
+        class="moz-email-headers-table">
+        <tbody>
+          <tr>
+            <th valign="BASELINE" align="RIGHT" nowrap="nowrap">主旨: </th>
+            <td>採購中文電子/紙本圖書排行榜</td>
+          </tr>
+          <tr>
+            <th valign="BASELINE" align="RIGHT" nowrap="nowrap">日期: </th>
+            <td>Wed, 4 Mar 2026 09:49:39 +0800</td>
+          </tr>
+          <tr>
+            <th valign="BASELINE" align="RIGHT" nowrap="nowrap">從: </th>
+            <td>谷佳臻 <a class="moz-txt-link-rfc2396E" href="mailto:char@lib.nycu.edu.tw">&lt;char@lib.nycu.edu.tw&gt;</a></td>
+          </tr>
+          <tr>
+            <th valign="BASELINE" align="RIGHT" nowrap="nowrap">到: </th>
+            <td>江秀愛組長 <a class="moz-txt-link-rfc2396E" href="mailto:jane@lib.nycu.edu.tw">&lt;jane@lib.nycu.edu.tw&gt;</a>, 陳怡鈞組長
+              <a class="moz-txt-link-rfc2396E" href="mailto:nycu0029@lib.nycu.edu.tw">&lt;nycu0029@lib.nycu.edu.tw&gt;</a></td>
+          </tr>
+          <tr>
+            <th valign="BASELINE" align="RIGHT" nowrap="nowrap">副本: </th>
+            <td>館長 <a class="moz-txt-link-rfc2396E" href="mailto:mjhwang@lib.nycu.edu.tw">&lt;mjhwang@lib.nycu.edu.tw&gt;</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+      <div dir="ltr">
+        <div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">秀愛組長
+            好：</div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small"><br>
+          </div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">要煩請資訊組(柏凱)協助撈每月誠品與博客來中文紙本圖書排行榜，並比對是否有館藏後提供採編組採購(可使用GEMINI或任何AI工具協助)。</div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small"><br>
+          </div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small"><br>
+          </div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">怡鈞組長
+            好：</div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small"><br>
+          </div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">請hyread廠商提供中文電子書每月前30名排行榜，並進行採購(額度約1-2萬台幣)，</div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">另資訊組提供前述排行榜的部分，如有電子書也請優先採購，無電子書的部分採購紙本。</div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small"><br>
+          </div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">再麻煩兩位組長了，非常感謝！</div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small"><br>
+          </div>
+          <div class="gmail_default"
+style="font-family:&quot;microsoft jhenghei&quot;,sans-serif;font-size:small">佳臻</div>
+        </div>
+        <span class="gmail_signature_prefix">-- </span><br>
+        <div dir="ltr" class="gmail_signature"
+          data-smartmail="gmail_signature">
+          <div dir="ltr">
+            <div><font face="microsoft jhenghei, sans-serif"
+                color="#000000">谷佳臻 Charlotte Ku</font></div>
+            <div><font face="microsoft jhenghei, sans-serif"
+                color="#000000">國立陽明交通大學圖書館 館長室 (交大校區)</font></div>
+            <div><font face="microsoft jhenghei, sans-serif"
+                color="#000000">Chiao Tung Campus </font></div>
+            <div><font face="microsoft jhenghei, sans-serif"
+                color="#000000">National Yang Ming Chiao Tung
+                University Library</font></div>
+            <div><font face="microsoft jhenghei, sans-serif"
+                color="#000000">Tel：+886-3-5712121#31780</font></div>
+            <div><font face="microsoft jhenghei, sans-serif"
+                color="#000000">Fax：+886-3-5718925</font></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+--------------0zgn7mfn5PQTlDWE7tOgwIqA--

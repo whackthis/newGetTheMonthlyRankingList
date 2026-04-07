@@ -5,8 +5,8 @@ import xml.etree.ElementTree as ET
 from urllib.parse import quote
 
 # ===== 參數設定 =====
-INPUT_FILE = "isbn_list-4-1.xlsx"
-OUTPUT_FILE = "isbn_query_result-4-1.xlsx"
+INPUT_FILE = "isbn_list-5.xlsx"
+OUTPUT_FILE = "isbn_query_result-5.xlsx"
 
 URL_TEMPLATE = (
     "https://nycu.alma.exlibrisgroup.com/view/sru/886UST_NYCU"

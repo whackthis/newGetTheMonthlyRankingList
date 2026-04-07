@@ -26,8 +26,8 @@ https://www.books.com.tw/web/sys_saletopb/books/?attribute=30
 
 
 統計方式：
-博客來部分
-1. 找到程式碼：books_top_chinese_month-12.py
+博客來部分：
+1. 找到程式碼：books_top_chinese_month-12_browser_fixed.py
 2. 找到月榜網址：https://www.books.com.tw/web/sys_saletopb/books/?attribute=30
 3. 使用ctrl+u撈取如上月榜的原始碼
 4. 將如上原始碼貼到目標文件，例如：RANKING_HTML_FILE = Path("books_source-11.html")（可以新增檔案）
@@ -35,6 +35,16 @@ https://www.books.com.tw/web/sys_saletopb/books/?attribute=30
 6. 開終端機執行books_top_chinese_month-12.py
 
 
-誠品部分
+誠品部分：
 1. 找到程式碼：eslite_top_chinese_month-12.py
 2. 修改輸出文件的檔名eslite_books-12.csv
+
+確認館藏部分：
+1. 將兩個.csv檔案加入INPUT_FILE = "isbn_list-5.xlsx"檔案
+2. 輸出OUTPUT_FILE = "isbn_query_result-5.xlsx"
+3. 手動將如上輸出檔案貼入115年3月誠品及博客來的月排行榜書籍清單-3.xlsx
+4. 再做優化
+
+備註：
+1. 注意出版日期可能會多一天或少一天
+2. 注意作者後面可能會多一些怪怪的字
